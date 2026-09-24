@@ -1,6 +1,14 @@
 
 # Hadoop/hive start commands
 
+Live Code sharing 
+
+```
+https://codepad.pro/pad/cMK5seSubOTc
+```
+
+
+
 
 ```
 jupyter lab  --notebook-dir=/home/dev/training
