@@ -1,0 +1,57 @@
+training/training-sh-dockerenv/polariname: polaris
+
+services:
+
+  polaris-bootstrap:
+    image: apache/polaris-admin-tool:1.7.0
+    container_name: polaris-bootstrap
+
+    environment:
+      POLARIS_PERSISTENCE_TYPE: relational-jdbc
+
+      QUARKUS_DATASOURCE_USERNAME: team
+      QUARKUS_DATASOURCE_PASSWORD: team1234
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://postgres:5432/polaris
+
+    command:
+      - bootstrap
+      - -r
+      - POLARIS
+      - -c
+      - POLARIS,root,s3cr3t
+
+    networks:
+      - dataeng-network
+
+
+  polaris:
+    image: apache/polaris:1.7.0
+    container_name: polaris
+    hostname: polaris
+    restart: unless-stopped
+
+    environment:
+      POLARIS_PERSISTENCE_TYPE: relational-jdbc
+
+      QUARKUS_DATASOURCE_USERNAME: team
+      QUARKUS_DATASOURCE_PASSWORD: team1234
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://postgres:5432/polaris
+
+      POLARIS_FEATURES_ALLOW_INSECURE_STORAGE_TYPES: "true"
+
+    ports:
+      - "8181:8181"
+      - "8182:8182"
+
+    depends_on:
+      polaris-bootstrap:
+        condition: service_completed_successfully
+
+    networks:
+      - dataeng-network
+
+
+networks:
+  dataeng-network:
+    external: true
+    name: dataeng-networks.yaml
