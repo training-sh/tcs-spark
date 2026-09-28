@@ -1,0 +1,56 @@
+name: postgresql
+
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    hostname: postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: polaris
+      POSTGRES_USER: team
+      POSTGRES_PASSWORD: team1234
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U team -d polaris"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+    networks:
+      - dataeng-network
+
+
+  adminer:
+    image: adminer:latest
+    container_name: adminer
+    hostname: adminer
+    restart: unless-stopped
+
+    ports:
+      - "8086:8080"
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    networks:
+      - dataeng-network
+
+
+volumes:
+  postgres_data:
+
+
+networks:
+  dataeng-network:
+    external: true
+    name: dataeng-network
