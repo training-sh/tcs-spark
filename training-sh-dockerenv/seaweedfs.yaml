@@ -1,0 +1,42 @@
+name: seaweedfs
+
+services:
+
+  seaweedfs:
+    image: chrislusf/seaweedfs:latest
+    container_name: seaweedfs
+    hostname: seaweedfs
+    restart: unless-stopped
+
+    command:
+      - mini
+      - -dir=/data
+      - -ip=seaweedfs
+      - -ip.bind=0.0.0.0
+
+    environment:
+      AWS_ACCESS_KEY_ID: team
+      AWS_SECRET_ACCESS_KEY: team1234
+
+    ports:
+      # S3 API
+      - "9001:8333"
+
+      # SeaweedFS Admin UI
+      - "9002:23646"
+
+    volumes:
+      - seaweedfs_data:/data
+
+    networks:
+      - dataeng-network
+
+
+volumes:
+  seaweedfs_data:
+
+
+networks:
+  dataeng-network:
+    external: true
+    name: dataeng-network
