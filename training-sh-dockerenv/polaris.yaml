@@ -39,6 +39,10 @@ services:
 
       POLARIS_FEATURES_ALLOW_INSECURE_STORAGE_TYPES: "true"
 
+      AWS_ACCESS_KEY_ID: team
+      AWS_SECRET_ACCESS_KEY: team1234
+      AWS_REGION: us-east-1
+
     ports:
       - "8181:8181"
       - "8182:8182"
