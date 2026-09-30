@@ -59,6 +59,7 @@ Open these URLs in the Windows browser while Hadoop is running in WSL:
 
 | Interface | URL | What to inspect |
 |---|---|---|
+|Seaweed AWS S3| http://localhost:9002 | S3 |
 |Airflow| [http://localhost:8090/airflow] (http://localhost:8090/airflow) | Airflow |
 |Spark UI | [http://localhost:8080](http://localhost:8080) | Spark UI |
 | ResourceManager | [http://localhost:8088](http://localhost:8088) | Applications, states, queues, nodes, memory, and vCores |
