@@ -58,4 +58,4 @@ services:
 networks:
   dataeng-network:
     external: true
-    name: dataeng-networks
+    name: dataeng-network
