@@ -4,6 +4,9 @@ Mysql already installed running
 mysql -u root -p
 ```
 
+password is root
+
+
 ```
 CREATE DATABASE IF NOT EXISTS movielens;
  
