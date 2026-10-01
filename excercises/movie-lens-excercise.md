@@ -38,4 +38,9 @@ Notebook3:
 						 result_df = join with movie_df to enrich data, you add title
 
 						 Write the result_df into gold as parqeut, hdfs: /movielens/gold/popular-movies/part-XYZ....par
+
+Notebook4:
+        now you read popular movies from s3 gold zone [which is the output from notebook 3]
+        Write to mysql , movielens database, popular_movies table
+
 ```
