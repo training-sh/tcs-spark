@@ -50,6 +50,31 @@ beeline -u 'jdbc:hive2://localhost:10000/default' -n "$USER"
 ```
 
 
+### Docker start commands
+
+```
+docker compose -f postgresql.yaml up -d
+```
+
+
+
+ 
+
+```
+docker compose -f polaris.yaml up -d
+```
+
+ 
+
+```
+docker compose -f seaweedfs.yaml up -d
+```
+
+ 
+
+ 
+
+
 
 ## Web interfaces
 
