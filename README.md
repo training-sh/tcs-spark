@@ -52,6 +52,15 @@ beeline -u 'jdbc:hive2://localhost:10000/default' -n "$USER"
 
 ### Docker start commands
 
+
+depends on which directory you have the directory
+
+```
+cd training
+cd training-sh-dockerenv
+```
+
+
 ```
 docker compose -f postgresql.yaml up -d
 ```
