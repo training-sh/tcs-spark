@@ -1,5 +1,11 @@
 # Olist Bronze-to-Silver Data Engineering Assignment
 
+## Dataset
+
+OList data to download. 
+
+https://gopalakrishnan-my.sharepoint.com/:f:/g/personal/gs_training_sh/IgAyLtwyhFVZSa_aHESUJys3AQLon4o_g19UOz8oYppHMxw?e=vsK479
+
 ## Objective
 
 Build a Bronze-to-Silver data pipeline for the Olist e-commerce dataset using:
