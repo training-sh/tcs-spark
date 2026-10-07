@@ -751,19 +751,21 @@ purchase_month
 
 # 21. Required Pipeline Scripts
 
-Create **seven independent PySpark scripts**.
+Create **seven independent PySpark scripts in ipynb**. 
+
+While submitting, put them into a directory, zip them , rename the zip to yourname-olist-bronze-to-silver.zip
 
 Suggested filenames:
 
 ```text
-01_customers_bronze_to_silver.py
-02_products_bronze_to_silver.py
-03_sellers_bronze_to_silver.py
+01_customers_bronze_to_silver.ipynb
+02_products_bronze_to_silver.ipynb
+03_sellers_bronze_to_silver.ipynb
 
-04_orders_bronze_to_silver.py
-05_order_items_bronze_to_silver.py
-06_order_payments_bronze_to_silver.py
-07_order_reviews_bronze_to_silver.py
+04_orders_bronze_to_silver.ipynb
+05_order_items_bronze_to_silver.ipynb
+06_order_payments_bronze_to_silver.ipynb
+07_order_reviews_bronze_to_silver.ipynb
 ```
 
 Do **not** put all transformations into one giant script.
@@ -1237,13 +1239,13 @@ order_reviews
 Seven independent scripts:
 
 ```text
-01_customers_bronze_to_silver.py
-02_products_bronze_to_silver.py
-03_sellers_bronze_to_silver.py
-04_orders_bronze_to_silver.py
-05_order_items_bronze_to_silver.py
-06_order_payments_bronze_to_silver.py
-07_order_reviews_bronze_to_silver.py
+01_customers_bronze_to_silver.ipynb
+02_products_bronze_to_silver.ipynb
+03_sellers_bronze_to_silver.ipynb
+04_orders_bronze_to_silver.ipynb
+05_order_items_bronze_to_silver.ipynb
+06_order_payments_bronze_to_silver.ipynb
+07_order_reviews_bronze_to_silver.ipynb
 ```
 
 ---
