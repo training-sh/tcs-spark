@@ -57,7 +57,6 @@ depends on which directory you have the directory
 
 ```
 cd training
-cd training-sh-dockerenv
 ```
 
 
@@ -80,8 +79,59 @@ docker compose -f seaweedfs.yaml up -d
 ```
 
  
+Check daily
 
- 
+hdfs, spark, hive running or not
+
+```
+jps
+```
+
+check polaris, seaweedfs running
+```
+docker ps
+```
+
+
+For S3/Polaris access on CLI
+
+```
+export AWS_ACCESS_KEY_ID=team
+export AWS_SECRET_ACCESS_KEY=team1234
+export AWS_DEFAULT_REGION=us-east-1
+```
+
+```
+export POLARIS_URL="http://localhost:8181"
+```
+
+polaris health check
+
+```
+curl -s http://localhost:8182/q/health | jq
+```
+
+```
+export POLARIS_TOKEN=$(curl -s \
+  "$POLARIS_URL/api/catalog/v1/oauth/tokens" \
+  --user root:s3cr3t \
+  -d 'grant_type=client_credentials' \
+  -d 'scope=PRINCIPAL_ROLE:ALL' \
+  | jq -r '.access_token')
+```
+
+--
+
+Listing catalog test
+
+```
+curl -s \
+  "$POLARIS_URL/api/management/v1/catalogs" \
+  -H "Authorization: Bearer $POLARIS_TOKEN" \
+  | jq
+```
+
+Token refresh, you may run daily basic even if you get error token or token expired error
 
 
 
